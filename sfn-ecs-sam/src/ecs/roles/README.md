@@ -14,6 +14,6 @@ aws iam create-policy --policy-name ECSTaskExecutionRolePolicy --policy-document
 
 ## Attach the policies to the roles
 ```
-aws iam list-policies --query 'Policies[?PolicyName==`ECSTaskRolePolicy`].Arn' --output text | aws iam attach-role-policy --role-name ECSTaskRole --policy-arn 
-aws iam list-policies --query 'Policies[?PolicyName==`ECSTaskExecutionRolePolicy`].Arn' --output text | aws iam attach-role-policy --role-name ECSTaskExecutionRole --policy-arn 
+aws iam list-policies --query 'Policies[?PolicyName==`ECSTaskRolePolicy`].Arn' --output text | xargs aws iam attach-role-policy --role-name ECSTaskRole --policy-arn 
+aws iam list-policies --query 'Policies[?PolicyName==`ECSTaskExecutionRolePolicy`].Arn' --output text | xargs aws iam attach-role-policy --role-name ECSTaskExecutionRole --policy-arn 
 ```
